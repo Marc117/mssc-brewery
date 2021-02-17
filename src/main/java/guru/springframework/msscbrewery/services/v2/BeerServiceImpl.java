@@ -1,22 +1,21 @@
-package guru.springframework.msscbrewery.services;
+package guru.springframework.msscbrewery.services.v2;
 
-import guru.springframework.msscbrewery.web.model.BeerDto;
+import guru.springframework.msscbrewery.web.model.v2.BeerDto;
+import guru.springframework.msscbrewery.web.model.v2.BeerStyleEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
-/**
- * Created by jt on 2019-04-20.
- */
 @Slf4j
 @Service
 public class BeerServiceImpl implements BeerService {
     @Override
     public BeerDto getBeerById(UUID beerId) {
-        return BeerDto.builder().id(UUID.randomUUID())
-                .beerName("Galaxy Cat")
-                .beerStyle("Pale Ale")
+        return  BeerDto.builder()
+                .id(UUID.randomUUID())
+                .beerName("Pisswasser")
+                .beerStyle(BeerStyleEnum.PILSNER)
                 .build();
     }
 
@@ -29,11 +28,11 @@ public class BeerServiceImpl implements BeerService {
 
     @Override
     public void updateBeer(UUID beerId, BeerDto beerDto) {
-        //todo would impl a real implementation to update beer
+        // todo impl
     }
 
-    public void deleteById(UUID beerId){
+    @Override
+    public void deleteById(UUID beerId) {
         log.debug("Deleting beer...");
     }
-
 }
